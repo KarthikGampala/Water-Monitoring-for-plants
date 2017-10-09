@@ -1,0 +1,107 @@
+<!-- Styles -->
+<html>
+<head>
+<meta http-equiv="refresh" content="7" >
+</head>
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}					
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart( "chartdiv1", {
+  "type": "serial",
+  "theme": "light",
+  "autoMargins": false,
+  "marginTop": 30,
+  "marginLeft": 80,
+  "marginBottom": 30,
+  "marginRight": 50,
+  "dataProvider": [ {
+    "category": "Water Level",
+    "excelent": 20,
+    "good": 20,
+    "average": 20,
+    "poor": 20,
+    "bad": 20,
+    "limit": 78,
+    "full": 200,
+    "bullet": {{waterlevel}}       // height of water
+  } ],
+  "valueAxes": [ {
+    "maximum": 200,
+    "stackType": "regular",
+    "gridAlpha": 0
+  } ],
+  "startDuration": 1,
+  "graphs": [ {
+    "fillAlphas": 0.8,
+    "lineColor": "#19d228",
+    "showBalloon": false,
+    "type": "column",
+    "valueField": "excelent"
+  }, {
+    "fillAlphas": 0.8,
+    "lineColor": "#b4dd1e",
+    "showBalloon": false,
+    "type": "column",
+    "valueField": "good"
+  }, {
+    "fillAlphas": 0.8,
+    "lineColor": "#f4fb16",
+    "showBalloon": false,
+    "type": "column",
+    "valueField": "average"
+  }, {
+    "fillAlphas": 0.8,
+    "lineColor": "#f6d32b",
+    "showBalloon": false,
+    "type": "column",
+    "valueField": "poor"
+  }, {
+    "fillAlphas": 0.8,
+    "lineColor": "#fb7116",
+    "showBalloon": false,
+    "type": "column",
+    "valueField": "bad"
+  }, {
+    "clustered": false,
+    "columnWidth": 0.3,
+    "fillAlphas": 1,
+    "lineColor": "#000000",
+    "stackable": false,
+    "type": "column",
+    "valueField": "bullet"
+  }, {
+    "columnWidth": 0.5,
+    "lineColor": "#000000",
+    "lineThickness": 3,
+    "noStepRisers": true,
+    "stackable": false,
+    "type": "step",
+    "valueField": "limit"
+  } ],
+  "rotate": true,
+  "columnWidth": 1,
+  "categoryField": "category",
+  "categoryAxis": {
+    "gridAlpha": 0,
+    "position": "left"
+  }
+} );
+</script>
+<!-- HTML -->
+<div class="chart-block">
+   <div id="chartdiv1" style="width:100%; height:220px;"></div>
+</div>	
+</html>
